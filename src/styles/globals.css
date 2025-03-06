@@ -5,6 +5,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --jd-border-radius-default: 1rem !important;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,5 +18,27 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Poppins, sans-serif;
+}
+
+.title {
+  @apply text-2xl sm:text-[2rem] md:text-[2.5rem] lg:text-[3.25rem] font-semibold uppercase;
+  @apply leading-[normal] sm:leading-8 md:leading-[3.75rem];
+}
+.subtitle {
+  @apply text-sm sm:text-lg md:text-xl lg:text-2xl font-normal;
+  @apply leading-[normal] sm:leading-6 md:leading-[2rem];
+}
+
+.app-text-12 {
+  @apply text-[0.75rem] sm:text-base md:text-lg lg:text-xl;
+}
+.app-text-14 {
+  @apply text-[0.875rem] sm:text-base md:text-lg;
+}
+.app-text-16 {
+  @apply text-base sm:text-xl md:text-2xl lg:text-2xl
+}
+.app-text-btn {
+  @apply text-base lg:text-lg;
 }
