@@ -11,7 +11,7 @@ type Props = {
 const BUTTONS = [
   {
     key: "Mountain",
-    Icon: Crosshair,
+    Icon: Mountain,
     title: () => i18n?.t("Activity 1"),
   },
   {
@@ -21,7 +21,7 @@ const BUTTONS = [
   },
   {
     key: "Crosshair",
-    Icon: Mountain,
+    Icon: Crosshair,
     title: () => i18n?.t("Activity 3"),
   },
 ];
@@ -29,7 +29,7 @@ const getPoints = (category: string, points: typeof SamplePage.carte_point) => {
   if (category === "Mountain") {
     return points.slice(0, 3).map((point) => ({
       ...point,
-      src: "/images/map_pin.svg",
+      src: "/images/map_pin2.svg",
     }));
   } else if (category === "Fishing") {
     return points.slice(3, 6).map((point) => ({
@@ -39,7 +39,7 @@ const getPoints = (category: string, points: typeof SamplePage.carte_point) => {
   } else {
     return points.slice(6, 9).map((point) => ({
       ...point,
-      src: "/images/map_pin2.svg",
+      src: "/images/map_pin.svg",
     }));
   }
 };
