@@ -43,7 +43,7 @@ export default function Home({ pageData }: Props) {
         <video autoPlay loop muted className="h-full max-w-max object-cover">
           <source src="/images/video.mov" type="video/mp4" />
         </video>
-        <nav className="w-full bg-brown/70 fixed top-0 z-50">
+        <nav className="w-full bg-brown/70 fixed top-0 z-20">
           <div className="container mx-auto flex justify-between items-center py-3 px-4">
             <div className="flex text-white">
               <Link className="hover-glow" href="/">
@@ -74,7 +74,7 @@ export default function Home({ pageData }: Props) {
               ))}
               <Link
                 href="/"
-                className="flex items-center justify-end rounded-full bg-orange1 py-2 pl-6 pr-3 group"
+                className="flex items-center justify-end rounded-full bg-orange1 py-2 pl-6 pr-3 group overflow-hidden"
               >
                 <div className="text max-w-0 opacity-0 transition-all duration-300 group-hover:text-white group-hover:opacity-100 group-hover:max-w-xs whitespace-nowrap">
                   Contactez-nous
@@ -116,11 +116,11 @@ export default function Home({ pageData }: Props) {
         </nav>
         <div className="absolute bottom-0 w-full">
           <div className="container mx-auto px-4 relative">
-            <div className="flex justify-between pb-10 text-white">
-              <div className="flex flex-1 justify-center py-6">
+            <div className="flex justify-between pb-10 text-white border-t overflow-hidden">
+              <div className="flex flex-1 justify-center">
                 <Link
                   href="/"
-                  className="flex flex-col items-center gap-5 group"
+                  className="transition-all duration-300 flex-1 flex flex-col items-center gap-5 group hover:border-t-4 py-6 border-t-transparent hover:border-t-white hover:bg-white/10"
                 >
                   <Image
                     src="/images/Mountains.svg"
@@ -133,10 +133,10 @@ export default function Home({ pageData }: Props) {
                   </div>
                 </Link>
               </div>
-              <div className="flex flex-1 justify-center py-6">
+              <div className="flex flex-1 justify-center">
                 <Link
                   href="/"
-                  className="flex flex-col items-center gap-5 group"
+                  className="transition-all duration-300 flex-1 flex flex-col items-center gap-5 group border-t-4 py-6 border-t-transparent hover:border-t-white"
                 >
                   <Image
                     src="/images/Fishing icon-32px.svg"
@@ -149,10 +149,10 @@ export default function Home({ pageData }: Props) {
                   </div>
                 </Link>
               </div>
-              <div className="flex flex-1 justify-center py-6">
+              <div className="flex flex-1 justify-center">
                 <Link
                   href="/"
-                  className="flex flex-col items-center gap-5 group"
+                  className="transition-all duration-300 flex-1 flex flex-col items-center gap-5 group hover:border-t-4 py-6 border-t-transparent hover:border-t-white"
                 >
                   <Image
                     src="/images/Crosshair-32px.svg"
@@ -173,12 +173,12 @@ export default function Home({ pageData }: Props) {
         </div>
         {isOpen && (
           <div
-            className="fixed inset-0 bg-black bg-opacity-50"
+            className="fixed inset-0 bg-black bg-opacity-50 z-30"
             onClick={() => setIsOpen(false)}
           ></div>
         )}
         <div
-          className={`fixed top-0 left-0 h-full w-64 bg-brown/90 shadow-lg transform transition-transform duration-300 flex flex-col ${
+          className={`z-30 fixed top-0 left-0 h-full w-64 bg-brown/90 shadow-lg transform transition-transform duration-300 flex flex-col ${
             isOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
@@ -216,6 +216,7 @@ export default function Home({ pageData }: Props) {
                   />
                 </Link>
               ))}
+              
               <Link
                 href="/"
                 className="self-start rounded-full bg-orange1 py-2 pl-6 pr-3"
