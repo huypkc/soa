@@ -43,7 +43,7 @@ export const Footer = ({ pageData }: { pageData: typeof SamplePage }) => {
     <footer className="bg-brown text-white py-10">
       <div className="container mx-auto px-4">
         <div className="flex flex-col">
-          <div className="grid grid-cols-12 gap-10">
+          <div className="grid grid-cols-12 gap-y-10 md:gap-10">
             <div className="col-span-12 md:col-span-4 text-center md:text-left text-base font-normal lg:text-lg">
               <div>{pageData.footer.address.name}</div>
 
