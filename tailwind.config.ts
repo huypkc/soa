@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
 export default {
   content: [
@@ -27,7 +28,29 @@ export default {
       screens: {
         'bp': '1120px'
       },
+
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ matchUtilities }) {
+      matchUtilities(
+        {
+          "text-shadow": (value) => ({
+            textShadow: value,
+          }),
+        },
+      );
+      matchUtilities(
+        {
+          "hover-scale": (value) => ({
+            transition: 'all',
+            transitionDuration: '500ms',
+            "&:hover": {
+              transform: `scale(${value})`
+            }
+          }),
+        },
+      );
+    }),
+  ],
 } satisfies Config;

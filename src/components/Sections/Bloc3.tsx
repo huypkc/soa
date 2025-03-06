@@ -153,7 +153,7 @@ export function Bloc3({ pageData }: Props) {
           </div>
           <div className="col-span-10">
             <div className="w-full p-3">
-              <span className="flex items-center gap-2 whitespace-nowrap">
+              <button className="flex items-center gap-2 whitespace-nowrap">
                 <Image src="/images/attach.svg" alt="" width={12} height={12} />
                 <span className="text-blue2 font-semibold">
                   {pageData.bloc_2_2.btn_4[1]}
@@ -161,7 +161,7 @@ export function Bloc3({ pageData }: Props) {
                 <span className="text-gray7 flex">
                   &nbsp;(*{pageData.bloc_2_2.btn_4[2]})
                 </span>
-              </span>
+              </button>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useTranslation } from "next-i18next";
+import { i18n, useTranslation } from "next-i18next";
 import classNames from "classnames";
 import { Crosshair, Fishing, Mountain } from "@/components/Icons/Icons";
 import { useRef, useState } from "react";
@@ -8,9 +8,45 @@ import SamplePage from "@/mock/SamplePage.json";
 type Props = {
   pageData: typeof SamplePage;
 };
+const BUTTONS = [
+  {
+    key: "Mountain",
+    Icon: Crosshair,
+    title: () => i18n?.t("Activity 1"),
+  },
+  {
+    key: "Fishing",
+    Icon: Fishing,
+    title: () => i18n?.t("Activity 2"),
+  },
+  {
+    key: "Crosshair",
+    Icon: Mountain,
+    title: () => i18n?.t("Activity 3"),
+  },
+];
+const getPoints = (category: string, points: typeof SamplePage.carte_point) => {
+  if (category === "Mountain") {
+    return points.slice(0, 3).map((point) => ({
+      ...point,
+      src: "/images/map_pin.svg",
+    }));
+  } else if (category === "Fishing") {
+    return points.slice(3, 6).map((point) => ({
+      ...point,
+      src: "/images/map_pin1.svg",
+    }));
+  } else {
+    return points.slice(6, 9).map((point) => ({
+      ...point,
+      src: "/images/map_pin2.svg",
+    }));
+  }
+};
 
 export function Bloc2({ pageData }: Props) {
-  const points = pageData.carte_point;
+  const [category, setCategory] = useState("Mountain");
+  const points = getPoints(category, pageData.carte_point);
   const { t } = useTranslation(["common"]);
   const [position, setPosition] = useState({ x: "0%", y: "0%" });
   const ref = useRef<HTMLImageElement>(null);
@@ -31,7 +67,7 @@ export function Bloc2({ pageData }: Props) {
     (typeof SamplePage.carte_point)[0] | null
   >(null);
   const handleChangeCategory = (category: string) => () => {
-    console.log(category);
+    setCategory(category);
     setSelected(null);
   };
   return (
@@ -45,41 +81,27 @@ export function Bloc2({ pageData }: Props) {
           <hr className="flex-1 border-2 border-gray" />
         </div>
         <div className="mt-10 w-full text-center text-xl text-brown flex gap-3 flex-wrap justify-center">
-          <button
-            className={classNames(
-              "[&_svg]:stroke-brown [&_svg]:w-8 flex justify-center items-center gap-2 border border-orange1/50 px-5 rounded-full",
-              "app-text-14"
-            )}
-            onClick={handleChangeCategory("Mountain")}
-          >
-            <Mountain />
-            <span>{t("Activity 1")}</span>
-          </button>
-          <button
-            className={classNames(
-              "[&_svg]:stroke-brown [&_svg]:w-8 flex justify-center items-center gap-2 border border-orange1/50 px-5 rounded-full",
-              "app-text-14"
-            )}
-            onClick={handleChangeCategory("Fishing")}
-          >
-            <Fishing />
-            <span>{t("Activity 2")}</span>
-          </button>
-          <button
-            className={classNames(
-              "[&_svg]:stroke-brown [&_svg]:w-8 flex justify-center items-center gap-2 border border-orange1/50 px-5 rounded-full",
-              "app-text-14"
-            )}
-            onClick={handleChangeCategory("Crosshair")}
-          >
-            <Crosshair />
-            <span>{t("Activity 3")}</span>
-          </button>
+          {BUTTONS.map(({ key, Icon, title }) => (
+            <button
+              key={key}
+              className={classNames(
+                "[&_svg]:stroke-brown [&_svg]:w-8 flex justify-center items-center gap-2 border border-orange1/50 px-5 rounded-full",
+                "app-text-14",
+                {
+                  "border-4": category === key,
+                }
+              )}
+              onClick={handleChangeCategory(key)}
+            >
+              <Icon />
+              <span>{title()}</span>
+            </button>
+          ))}
         </div>
         <div className="mt-10 w-full aspect-video overflow-hidden">
           <div
             className={classNames(
-              "w-full relative transition-transform duration-300",
+              "w-full relative transition-transform duration-300"
             )}
             style={{
               transform: `scale(${selected ? 2 : 1}) translate(${
@@ -100,16 +122,19 @@ export function Bloc2({ pageData }: Props) {
             {points.map((point, index) => (
               <div
                 key={index}
-                className={classNames({
-                  absolute: true,
-                  "border border-orange1 rounded-3xl":
-                    point.name === selected?.name,
-                })}
+                className={classNames(
+                  {
+                    "absolute transition-transform duration-300": true,
+                    "border border-orange1 rounded-3xl":
+                      point.name === selected?.name,
+                  },
+                  selected ? "scale-[0.5]" : "scale-100"
+                )}
                 style={{ top: point.top, left: point.left }}
               >
                 <div className="relative">
                   <Image
-                    src="/images/map_pin.svg"
+                    src={point.src}
                     alt=""
                     width={40}
                     height={40}

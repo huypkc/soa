@@ -22,7 +22,7 @@ export function Bloc4({ pageData }: Props) {
         </div>
         <div className="mt-10 flex gap-3 flex-nowrap overflow-hidden">
           {pageData.bloc_3.cases.map((item, index) => (
-            <div key={index} className="flex-1 min-w-[300px]">
+            <Link href="/" key={index} className="flex-1 min-w-[300px] hover-scale-[1.05]">
               <div
                 className="w-[2/3] aspect-[0.8] bg-cover bg-center bg-no-repeat rounded-lg"
                 style={{
@@ -36,7 +36,7 @@ export function Bloc4({ pageData }: Props) {
               <div className="mt-3 text-sm md:text-base lg:text-lg text-brown border-l border-l-gray pl-3 line-clamp-3 lg:line-clamp-2">
                 {item.description}
               </div>
-            </div>
+            </Link>
           ))}
         </div>
         <div className="container mx-auto md:hidden">

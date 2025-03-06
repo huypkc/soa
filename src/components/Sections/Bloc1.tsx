@@ -22,11 +22,12 @@ export function Bloc1({ pageData }: Props) {
         <div className="mt-5 w-full">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {pageData.bloc_1.cases.map((item, index) => (
-              <div
-                className={classNames("flex flex-col", {
+              <Link
+                className={classNames("flex flex-col hover-scale-[1.05]", {
                   "md:mt-10": index !== 1,
                 })}
                 key={index}
+                href="/"
               >
                 <div
                   className="w-full aspect-video md:aspect-[0.8] bg-cover bg-center bg-no-repeat rounded-xl"
@@ -44,8 +45,7 @@ export function Bloc1({ pageData }: Props) {
                   {item.description}
                 </div>
                 <div className="mt-3">
-                  <Link
-                    href="/"
+                  <div
                     className={classNames(
                       "text-brown border border-brown rounded-full py-2 px-5 inline-flex items-center font-medium",
                       "app-text-14"
@@ -55,9 +55,9 @@ export function Bloc1({ pageData }: Props) {
                     <div className="[&_svg]:stroke-blue text-blue">
                       <ArrowUpRight />
                     </div>
-                  </Link>
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

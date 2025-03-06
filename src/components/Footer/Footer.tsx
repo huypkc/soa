@@ -26,8 +26,7 @@ export const Footer = ({ pageData }: { pageData: typeof SamplePage }) => {
         pageData.footer.links.length / 2
       )}, minmax(0, 1fr))`,
     };
-  }
-  else if (breakpoint === Breakpoint.lg) {
+  } else if (breakpoint === Breakpoint.lg) {
     style = {
       gridTemplateRows: `repeat(${Math.ceil(
         pageData.footer.links.length / 3
@@ -57,25 +56,28 @@ export const Footer = ({ pageData }: { pageData: typeof SamplePage }) => {
                 "col-span-12 text-center grid grid-cols-1 gap-5",
                 "md:grid-flow-col md:grid-cols-none",
                 "md:col-span-8 md:text-left",
-                "lg:max-xl:grid-cols-[1fr_5fr_1fr]",
+                "lg:max-xl:grid-cols-[1fr_2fr_1fr]"
               )}
               style={style}
             >
               {pageData.footer.links.map((item, index) => (
-                <div key={index} className="opacity-60 text-base font-normal lg:text-lg">
-                  <Link href="/">{item.name}</Link>
+                <div
+                  key={index}
+                >
+                  <Link href="/" className="text-base font-normal lg:text-lg opacity-60 hover:opacity-100 hover-glow">{item.name}</Link>
                 </div>
               ))}
               <div className="flex justify-center gap-5 sm:hidden">
                 {SOCIAL_MEDIAS.map((item, index) => (
-                  <Image
-                    key={index}
-                    src={item.icon}
-                    alt=""
-                    width={30}
-                    height={30}
-                    className="bg-orange1 rounded-full p-1"
-                  />
+                  <Link key={index} href="/" className="hover-scale-[1.2]">
+                    <Image
+                      src={item.icon}
+                      alt=""
+                      width={30}
+                      height={30}
+                      className="bg-orange1 rounded-full p-1"
+                    />
+                  </Link>
                 ))}
               </div>
             </div>
@@ -86,14 +88,15 @@ export const Footer = ({ pageData }: { pageData: typeof SamplePage }) => {
           <div className="app-text-16">© BASIC 2024</div>
           <div className="hidden sm:flex sm:gap-3">
             {SOCIAL_MEDIAS.map((item, index) => (
-              <Image
-                key={index}
-                src={item.icon}
-                alt=""
-                width={30}
-                height={30}
-                className="bg-orange1 rounded-full p-1"
-              />
+              <Link key={index} href="/" className="hover-scale-[1.2]">
+                <Image
+                  src={item.icon}
+                  alt=""
+                  width={30}
+                  height={30}
+                  className="bg-orange1 rounded-full p-1"
+                />
+              </Link>
             ))}
           </div>
         </div>

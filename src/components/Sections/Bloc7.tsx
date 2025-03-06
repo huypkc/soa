@@ -66,7 +66,7 @@ export function Bloc7({ pageData }: Props) {
               <Link
                 key={index}
                 href="/"
-                className="relative w-[calc(50%-0.625rem)] lg:w-[calc(25%-0.9375rem)]"
+                className="relative w-[calc(50%-0.625rem)] lg:w-[calc(25%-0.9375rem)] hover-scale-[1.05]"
               >
                 <Image
                   src={`/images/bloc7${index % 4}.png`}
