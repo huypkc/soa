@@ -28,7 +28,7 @@ export function Bloc8({ pageData }: Props) {
           <div className="text-brown text-sm md:text-base lg:text-xl xl:text-2xl">{pageData.bloc_6.text}</div>
           <Link
             href="/"
-            className="mt-3 py-2 px-10 bg-orange1 text-white rounded-full text-base lg:text-lg font-medium"
+            className="mt-3 py-2 px-10 bg-orange2 hover:bg-orange1 text-white rounded-full text-base lg:text-lg font-medium"
           >
             {pageData.bloc_6.button}
           </Link>

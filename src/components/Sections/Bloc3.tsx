@@ -166,10 +166,10 @@ export function Bloc3({ pageData }: Props) {
           </div>
         </div>
         <div className="w-full flex items-center justify-between md:justify-end gap-3 app-text-btn">
-          <button className="text-brown border border-brown px-10 py-2 rounded-full flex-1 md:flex-none">
+          <button className="text-brown border border-brown px-10 py-2 rounded-full flex-1 md:flex-none hover:bg-orange1/30 transition-all duration-300">
             {pageData.bloc_2_2.btn_5}
           </button>
-          <button className="flex-1 md:flex-none text-white bg-orange2 border border-orange2 px-10 py-2 rounded-full flex items-center justify-center gap-2">
+          <button className="flex-1 md:flex-none text-white bg-orange2 hover:bg-orange1 border border-orange2 px-10 py-2 rounded-full flex items-center justify-center gap-2">
             {pageData.bloc_2_2.btn_6}
             <Image src="/images/send-2.svg" alt="" width={20} height={20} />
           </button>

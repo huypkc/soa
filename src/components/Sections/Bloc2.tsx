@@ -85,8 +85,8 @@ export function Bloc2({ pageData }: Props) {
             <button
               key={key}
               className={classNames(
-                "[&_svg]:stroke-brown [&_svg]:w-8 flex justify-center items-center gap-2 border border-orange1/50 px-5 rounded-full",
-                "app-text-14",
+                "[&_svg]:stroke-brown [&_svg]:w-8 flex justify-center items-center gap-2 border border-orange1/50 px-5 rounded-full transition-all duration-300",
+                "app-text-14 hover:bg-orange1/30 ",
                 {
                   "border-4": category === key,
                 }

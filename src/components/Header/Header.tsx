@@ -40,16 +40,10 @@ export default function Home({ pageData }: Props) {
   return (
     <>
       <header className="w-full relative min-h-[812px] md:min-h-[834px] lg:min-h-[1080px]">
-        <Image
-          src="/images/Hero image.png"
-          alt=""
-          width={0}
-          height={0}
-          fill
-          sizes="100vw"
-          className="object-cover"
-        />
-        <nav className="w-full bg-brown/70 absolute top-0">
+        <video autoPlay loop muted className="h-full max-w-max object-cover">
+          <source src="/images/video.mov" type="video/mp4" />
+        </video>
+        <nav className="w-full bg-brown/70 fixed top-0 z-50">
           <div className="container mx-auto flex justify-between items-center py-3 px-4">
             <div className="flex text-white">
               <Link className="hover-glow" href="/">
@@ -80,8 +74,11 @@ export default function Home({ pageData }: Props) {
               ))}
               <Link
                 href="/"
-                className="flex items-center justify-end rounded-full bg-orange1 py-2 pl-6 pr-3"
+                className="flex items-center justify-end rounded-full bg-orange1 py-2 pl-6 pr-3 group"
               >
+                <div className="text max-w-0 opacity-0 transition-all duration-300 group-hover:text-white group-hover:opacity-100 group-hover:max-w-xs whitespace-nowrap">
+                  Contactez-nous
+                </div>
                 <Image
                   src="/images/ArrowUpRight.svg"
                   alt=""
@@ -123,7 +120,7 @@ export default function Home({ pageData }: Props) {
               <div className="flex flex-1 justify-center py-6">
                 <Link
                   href="/"
-                  className="flex flex-col items-center gap-5 hover-scale-[1.2]"
+                  className="flex flex-col items-center gap-5 group"
                 >
                   <Image
                     src="/images/Mountains.svg"
@@ -131,7 +128,7 @@ export default function Home({ pageData }: Props) {
                     width={40}
                     height={40}
                   />
-                  <div className="text-center app-text-14">
+                  <div className="text-center app-text-14 transition-all duration-300 translate-y-96 group-hover:translate-y-0">
                     {pageData.banner_menu[0]}
                   </div>
                 </Link>
@@ -139,7 +136,7 @@ export default function Home({ pageData }: Props) {
               <div className="flex flex-1 justify-center py-6">
                 <Link
                   href="/"
-                  className="flex flex-col items-center gap-5 hover-scale-[1.2]"
+                  className="flex flex-col items-center gap-5 group"
                 >
                   <Image
                     src="/images/Fishing icon-32px.svg"
@@ -147,7 +144,7 @@ export default function Home({ pageData }: Props) {
                     width={40}
                     height={40}
                   />
-                  <div className="text-center app-text-14">
+                  <div className="text-center app-text-14 transition-all duration-300 translate-y-96 group-hover:translate-y-0">
                     {pageData.banner_menu[1]}
                   </div>
                 </Link>
@@ -155,7 +152,7 @@ export default function Home({ pageData }: Props) {
               <div className="flex flex-1 justify-center py-6">
                 <Link
                   href="/"
-                  className="flex flex-col items-center gap-5 hover-scale-[1.2]"
+                  className="flex flex-col items-center gap-5 group"
                 >
                   <Image
                     src="/images/Crosshair-32px.svg"
@@ -163,7 +160,7 @@ export default function Home({ pageData }: Props) {
                     width={40}
                     height={40}
                   />
-                  <div className="text-center app-text-14">
+                  <div className="text-center app-text-14 transition-all duration-300 translate-y-96 group-hover:translate-y-0">
                     {pageData.banner_menu[2]}
                   </div>
                 </Link>
