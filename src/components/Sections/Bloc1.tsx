@@ -45,17 +45,21 @@ export function Bloc1({ pageData }: Props) {
                   {item.description}
                 </div>
                 <div className="mt-3">
-                  <div
+                  <button
                     className={classNames(
                       "text-brown border border-brown rounded-full py-2 px-5 inline-flex items-center font-medium",
-                      "app-text-14"
+                      "app-text-14 group relative overflow-hidden hover:text-white"
                     )}
                   >
-                    {item.cta}
-                    <div className="[&_svg]:stroke-blue text-blue">
+                    <div
+                      className="absolute w-16 h-16 bg-orange1 rounded-full top-0 left-[15%] 
+                    group-hover:animate-grow-circle opacity-0 group-hover:opacity-100 z-[10]"
+                    ></div>
+                    <div className="z-[11]">{item.cta}</div>
+                    <div className="[&_svg]:stroke-blue text-blue z-[11] group-hover:[&_svg]:text-white group-hover:[&_svg]:stroke-white transition-all duration-300">
                       <ArrowUpRight />
                     </div>
-                  </div>
+                  </button>
                 </div>
               </Link>
             ))}
